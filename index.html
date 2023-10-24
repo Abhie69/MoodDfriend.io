@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mood Detector.io</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #0077b6, #0096c7, #00b4d8, #48cae4);
+            color: white;
+        }
+        #container {
+            margin-top: 100px;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border: 2px solid #0077b6;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        #userInput {
+            width: 200px;
+            padding: 5px;
+            border: 1px solid #0077b6;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #0096c7;
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #00b4d8;
+        }
+        p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        footer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mood D Friend.io</h1>
+    <div id="container">
+        <label for="userInput">How are you feeling today ? </label>
+        <input type="text" id="userInput">
+        <button onclick="detectMood()">Detect Mood</button>
+   
+<br />
+<br />
+    </div>
+    <p id="moodResult"></p>
+   <tt> <b><footer>&copy; 2023 Mood Detector
+    </em></footer></b></tt>
+<tt> <footer>The Mood D friend is a valuable companion in our daily lives. It offers insight into our emotional well-being, helping us understand our feelings and reactions. With its guidance, we can manage stress, improve happiness. It encourages self-awareness, promoting healthier relationships and emotional resilience. This innovative tool serves as a reminder that our mental health is as important as our physical health. By using the Mood D friend regularly, we empower ourselves to lead happier, more balanced lives. It's a technological bridge to our emotional well-being. 
+    </em></footer></tt>
+    <footer>
+     <p style="color: black;font-size: 10px;n"><u>Tips:</u> Share a screenshot with loved once</p>
+     <p style="color: navy;font-size: 8px;">Moods make your beloved one to care</p>
+         
+    </footer>
+    <script>
+        function detectMood() {
+            const userInput = document.getElementById('userInput').value.toLowerCase();
+            const moods = {
+                'happy': 'You seem happy today! How about asking someone for a coffee?',
+                'excited': 'You appear excited! It might be a great day to read that book you love.',
+                
+                'romantic': 'Feeling romantic? How about planning a special date or surprising your loved one with a heartfelt message?',
+                'playful': 'A playful mood, huh? How about going for a fun walk?',
+                'confident': 'Confidence shines through! Take on the day with that winning attitude.',
+                'grateful': 'Feeling grateful is wonderful. What are you thankful for today?',
+                'relaxed': 'Relaxation is key. Maybe it\'s time to unwind and take some rest.',
+                'empowered': 'You look empowered! Don\'t hesitate to tackle your goals.',
+               'inspired': 'Inspiration is in the air. What creative ideas are brewing?',
+                'hopeful': 'You appear hopeful. Look forward to the day ending with a smile.',
+                'loving': 'A loving mood? Share your affection with someone dear.',
+                'reflective': 'Feeling reflective? Take time to ponder your thoughts.',
+                'determined': 'Determination fuels success. What goals will you achieve today?',
+                'thoughtful': 'A thoughtful mood means considerate choices. Make them count.',
+                'silly': 'Silliness is a sign of a playful spirit. How about a little dance to lighten the mood?',
+                'peaceful': 'You exude peace and serenity. Take a moment to meditate or breathe deeply.',
+                'stressed': 'Feeling stressed? Take a break, relax, and practice some deep breathing.',
+                'adventurous': 'An adventurous spirit today? Consider trying something new or exploring a new hobby.',
+                'motivated': 'Motivation is your driving force today. Make a to-do list and get things done.',
+                'lonely': 'Feeling lonely? Connect with a loved one or reach out to a friend for a chat.',
+                'bored': 'Boredom can be a creative spark. How about picking up a new hobby or trying out a recipe?',
+                'emotional': 'Emotions can be powerful. Allow yourself to feel, and consider writing in a journal.',
+                'energetic': 'High energy today! Consider a workout or a dance session to harness that energy.',
+                'nostalgic': 'Nostalgia can be heartwarming. Reminisce about fond memories or reach out to an old friend.',
+                'enthusiastic': 'You re enthusiastic today! Embrace your energy and make the most of your day.',
+                'dreamy': 'A dreamy mood means its time to let your imagination wander and explore your fantasies.',
+                'compassionate': 'Feeling compassionate? Consider helping someone in need or volunteering for a cause.',
+                'flirty': 'In a flirty mood? Reach out to that special someone and share your feelings.',
+                'curious': 'Curiosity sparks new ideas. Explore a new topic or ask questions.',
+                'thoughtful': 'You appear thoughtful. Take time to consider your decisions and actions.',
+                'playful': 'Playfulness is a sign of a fun-loving spirit. How about playing a game or enjoying a hobby?',
+                'grateful': 'Feeling grateful is a wonderful mood. Take a moment to appreciate the beauty around you.',
+                'optimistic': 'Optimism is a powerful force. Face the day with a positive outlook.',
+                'determined': 'Determination fuels success. What goals will you accomplish today?',
+                'thoughtful': 'Thoughtfulness leads to wise choices. Make each decision count.',
+                'empowered': 'Empowerment is your strength. Make the most of it in all your endeavors.',
+                'inspired': 'Inspiration is in the air. Let your creative ideas flow freely.',
+                'energetic': 'High energy today! Channel it into activities that invigorate you.',
+                'calm': 'Calm and composed. Take a moment to meditate or simply breathe deeply.',
+                'Anxious': "Feeling anxious? Take a deep breath and remember, you can overcome this.",
+'Exhausted': "Exhaustion is a sign of hard work. Rest and recharge to face challenges.",
+'Discouraged': "Don't be discouraged. Seek encouragement from friends and loved ones.",
+'Guilty': "Guilt can be burdensome. Learn from mistakes and forgive yourself.",
+'Defeated': "Feeling defeated is temporary. With resilience, you can bounce back.",
+'Determined': "In times of determination, embrace your inner strength and conquer your goals."
+            };
+
+
+            const moodResult = document.getElementById('moodResult');
+            if (userInput in moods) {
+                moodResult.textContent = moods[userInput];
+            } else {
+                moodResult.textContent = 'Sorry, I don\'t recognize that mood. Please try another.';
+            }
+        }
+    </script>
+</body>
+</html>
